@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungramps' Accomplishments</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f7;
+            text-align: center;
+            margin: 0;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .business-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .business-card img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .business-card.visible img {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hungramps' Greatest Accomplishments</h1>
+        <ul>
+            <li>🥇 Defeated the legendary Hunger Demon in 2023</li>
+            <li>🥞 Ate 50 pancakes in under 5 minutes</li>
+            <li>🍔 Invented the "Hungramps Special" sandwich</li>
+            <li>🔥 Survived a week on only instant noodles and sheer willpower</li>
+            <li>💪 Became the undefeated champion of the Midnight Snack Battle</li>
+            <li>🚀 Started the first intergalactic food delivery service</li>
+        </ul>
+    </div>
+    
+    <div class="business-card">
+        <img src="https://static.wikia.nocookie.net/yokaiwatch/images/e/e4/Hungramps_Artwork.png/revision/latest?cb=20230211124501" alt="500 Business Cards: $15.75 | Cheap Business Cards">
+    </div>
+
+    <!-- Secret Message -->
+    <p class="hidden">Congrats, you found the secret! The next adventure is hidden in the code... Look for the word "Pineapple".</p>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".container, .business-card");
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            elements.forEach(element => observer.observe(element));
+        });
+    </script>
+</body>
+</html>
